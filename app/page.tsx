@@ -30,14 +30,12 @@ export default function Home() {
 
         <button onClick={randomThaiID}>Submit</button>
         {thaiID && (
-          <div style={{ marginTop: '1rem' }}>
-            <p>{thaiID}</p>
+          <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <p style={{ fontSize: '2rem', fontWeight: 'bold' }}>{thaiID}</p>
           </div>
         )}
-
-
       </main>
-      <footer className={styles.footer}>
+      {/* <footer className={styles.footer}>
         <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           target="_blank"
@@ -80,7 +78,7 @@ export default function Home() {
           />
           Go to nextjs.org →
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }

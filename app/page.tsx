@@ -20,6 +20,12 @@ export default function Home() {
           <li>
             สุ่มเลขตาม format คนที่เกิดในประเทศไทยเท่านั้น
           </li>
+          <li>
+            ไม่รับประกันความถูกต้องใดๆทั้งสิ้น
+          </li>
+          <li>
+            ถ้าบังเอิญตรงกับเลขจริงของใคร มันคือความบังเอิญจริงๆ
+          </li>
         </ul>
 
         <button onClick={randomThaiID}>Submit</button>

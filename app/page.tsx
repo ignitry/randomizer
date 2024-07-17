@@ -9,7 +9,17 @@ export default function Home() {
   const [thaiID, setThaiID] = useState('');
 
   const randomThaiID = () => {
-    setThaiID(ThaiId.generate());
+    const thaiid = ThaiId.generate();
+
+    setThaiID(thaiid);
+
+    navigator.clipboard.writeText(thaiid)
+      .then(() => {
+        console.log('Thai ID copied to clipboard!');
+      })
+      .catch(err => {
+        console.error('Failed to copy Thai ID: ', err);
+      });
   };
 
   return (

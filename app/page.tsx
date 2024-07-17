@@ -38,7 +38,7 @@ export default function Home() {
           </li>
         </ul>
 
-        <button onClick={randomThaiID}>Submit</button>
+        <button onClick={randomThaiID}>สุ่ม</button>
         {thaiID && (
           <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <p style={{ fontSize: '2rem', fontWeight: 'bold' }}>{thaiID}</p>

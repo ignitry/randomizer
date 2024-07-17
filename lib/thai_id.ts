@@ -4,10 +4,10 @@ export class ThaiId {
 
     const firstDigit = 1;
 
-    const secondThirdDigits = (10 + Math.floor(Math.random() * 68))
-      .toString()
-      .split('')
-      .map(Number);
+    // There's 1/10 chance to be Bangkokian ID
+    const secondThirdDigits: number[] = Math.random() < 0.1
+      ? [1, 0]
+      : (11 + Math.floor(Math.random() * 67)).toString().split('').map(Number);
 
     let fourthFifthDigits: number[];
     if (secondThirdDigits.join('') === '10') {

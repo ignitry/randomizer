@@ -41,7 +41,7 @@ export default function Home() {
         <button style={{ height: '2.5rem' }} onClick={randomThaiID}>สุ่ม</button>
         {thaiID && (
           <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <p style={{ fontSize: '2rem', fontWeight: 'bold' }}>{thaiID}</p>
+            <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#EE9E0B' }}>{thaiID}</p>
           </div>
         )}
       </main>

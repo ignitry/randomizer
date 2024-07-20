@@ -38,7 +38,7 @@ export default function Home() {
           </li>
         </ul>
 
-        <button style={{ height: '2.5rem', width:  }} onClick={randomThaiID}>สุ่ม</button>
+        <button style={{ height: '2.5rem', width: '100%' }} onClick={randomThaiID}>สุ่ม</button>
         {thaiID && (
           <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#EE9E0B' }}>{thaiID}</p>

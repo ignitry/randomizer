@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "./page.module.css";
 import { ThaiIDGenerator } from "@/app/components/thai_id_generator";
 

@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { ThaiId } from "@/lib/thai_id";
+import React, { useState } from 'react';
+import { ThaiId } from "@/lib/thai_id/thai_id";
 
-export const ThaiIDGenerator = () => {
-  const [thaiID, setThaiID] = useState('');
+export const ThaiIDGenerator: React.FC = () => {
+  const [thaiID, setThaiID] = useState<string>('');
 
   const randomThaiID = () => {
     const thaiid = ThaiId.generate();
@@ -10,7 +10,7 @@ export const ThaiIDGenerator = () => {
 
     navigator.clipboard.writeText(thaiid)
       .then(() => {
-        console.log('Thai ID copied to clipboard!');
+        console.info('Thai ID copied to clipboard!');
       })
       .catch(err => {
         console.error('Failed to copy Thai ID: ', err);

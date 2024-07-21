@@ -1,13 +1,16 @@
+import { Changwat } from './changwat';
+
 export class ThaiId {
   static generate(): string {
-    const random = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+    const random = (min: number, max: number): number => Math.floor(Math.random() * (max - min + 1)) + min;
 
     const firstDigit = 1;
 
-    // There's 1/10 chance to be Bangkokian ID
-    const secondThirdDigits: number[] = Math.random() < 0.1
-      ? [1, 0]
-      : (11 + Math.floor(Math.random() * 67)).toString().split('').map(Number);
+    const changwatKeys: string[] = Changwat.List();
+
+    const secondThirdDigits: number[] = changwatKeys[random(0, changwatKeys.length - 1)]
+      .split('')
+      .map(Number);
 
     let fourthFifthDigits: number[];
     if (secondThirdDigits.join('') === '10') {
@@ -21,15 +24,15 @@ export class ThaiId {
       }
     }
 
-    const remainingDigits = Array.from({ length: 7 }, () => random(0, 9));
+    const remainingDigits: number[] = Array.from({ length: 7 }, () => random(0, 9));
 
-    const numbers = [firstDigit, ...secondThirdDigits, ...fourthFifthDigits, ...remainingDigits];
+    const numbers: number[] = [firstDigit, ...secondThirdDigits, ...fourthFifthDigits, ...remainingDigits];
 
-    const sum = numbers
+    const sum: number = numbers
       .map((num, index) => num * (13 - index))
       .reduce((acc, val) => acc + val, 0);
 
-    const checksum = (11 - (sum % 11)) % 10;
+    const checksum: number = (11 - (sum % 11)) % 10;
 
     numbers.push(checksum);
 

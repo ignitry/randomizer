@@ -1,30 +1,29 @@
 import { Changwat } from './changwat';
+import { RandomNumber, ToZeroPaddedDigits } from './utils'
 
 export class ThaiId {
   static generate(): string {
-    const random = (min: number, max: number): number => Math.floor(Math.random() * (max - min + 1)) + min;
-
-    const firstDigit = 1;
+    const firstDigit = RandomNumber(1,3);
 
     const changwatKeys: string[] = Changwat.List();
 
-    const secondThirdDigits: number[] = changwatKeys[random(0, changwatKeys.length - 1)]
+    const secondThirdDigits: number[] = changwatKeys[RandomNumber(0, changwatKeys.length - 1)]
       .split('')
       .map(Number);
 
     let fourthFifthDigits: number[];
     if (secondThirdDigits.join('') === '10') {
-      fourthFifthDigits = random(1, 50).toString().padStart(2, '0').split('').map(Number);
+      fourthFifthDigits = ToZeroPaddedDigits(RandomNumber(1, 50));
     } else {
-      const fourthFifth = random(1, 100);
+      const fourthFifth = RandomNumber(1, 100);
       if (fourthFifth <= 8 || fourthFifth === 99) {
-        fourthFifthDigits = fourthFifth.toString().padStart(2, '0').split('').map(Number);
+        fourthFifthDigits = ToZeroPaddedDigits(fourthFifth);
       } else {
-        fourthFifthDigits = random(1, 8).toString().padStart(2, '0').split('').map(Number);
+        fourthFifthDigits = ToZeroPaddedDigits(RandomNumber(1, 8));
       }
     }
 
-    const remainingDigits: number[] = Array.from({ length: 7 }, () => random(0, 9));
+    const remainingDigits: number[] = Array.from({ length: 7 }, () => RandomNumber(0, 9));
 
     const numbers: number[] = [firstDigit, ...secondThirdDigits, ...fourthFifthDigits, ...remainingDigits];
 

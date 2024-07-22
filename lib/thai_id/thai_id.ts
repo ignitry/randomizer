@@ -37,4 +37,21 @@ export class ThaiId {
 
     return numbers.join('');
   }
+
+  static validate(id: string): boolean {
+    if (id.length !== 13 || !/^\d{13}$/.test(id)) {
+      return false;
+    }
+
+    const digits: number[] = id.split('').map(Number);
+
+    const sum: number = digits
+      .slice(0, 12)
+      .map((num, index) => num * (13 - index))
+      .reduce((acc, val) => acc + val, 0);
+
+    const checksum: number = (11 - (sum % 11)) % 10;
+
+    return checksum === digits[12];
+  }
 }

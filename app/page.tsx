@@ -1,10 +1,15 @@
 import styles from "./page.module.css";
 import { ThaiIDGenerator } from "@/app/components/thai_id_generator";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <Link href="/validations/new">
+          <a>Validate</a>
+        </Link>
+
         <h1>โปรแกรมสุ่มเลขบัตรประชาชน</h1>
         <ul>
           <li>

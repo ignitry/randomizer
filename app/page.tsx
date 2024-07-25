@@ -7,7 +7,7 @@ export default function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
         <Link href="/validations/new">
-          Validate
+          ตรวจสอบเลขบัตร
         </Link>
 
         <h1>โปรแกรมสุ่มเลขบัตรประชาชน</h1>

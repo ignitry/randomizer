@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        {/* <Link href="/validations/new">
+        <Link href="/validations/new">
           Validate
-        </Link> */}
+        </Link>
 
         <h1>โปรแกรมสุ่มเลขบัตรประชาชน</h1>
         <ul>

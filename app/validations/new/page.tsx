@@ -46,6 +46,18 @@ export default function NewValidationPage() {
           </div>
           <button type="submit" style={{ marginTop: '10px' }}>Validate</button>
         </form>
+
+        <h1>โปรแกรมตรวจสอบเลขบัตรประชาชน</h1>
+        <ul>
+          <li>
+            ตรวจด้วยวิธีการคำนวณเพื่อตรวจสอบความถูกต้องของหลักสุดท้าย
+          </li>
+          <li>
+            ไม่รับประกันความถูกต้องใดๆทั้งสิ้น
+          </li>
+        </ul>
+
+        <ThaiIDValidator />
       </main>
     </div>
   );

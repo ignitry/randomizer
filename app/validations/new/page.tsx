@@ -1,7 +1,7 @@
 
 import styles from "../../page.module.css";
 import Link from "next/link";
-import { ThaiIDValidator } from "@/app/components/thai_id_validator";
+import { ThaiIDValidator } from "@/lib/thai_id/components/thai_id_validator";
 
 export default function NewValidationPage() {
   return (

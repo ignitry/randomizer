@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import { ThaiIDGenerator } from "@/app/components/thai_id_generator";
+import { ThaiIDGenerator } from "@/lib/thai_id/components/thai_id_generator";
 import Link from "next/link";
 
 export default function Home() {

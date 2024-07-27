@@ -1,11 +1,15 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThaiId } from "@/lib/thai_id/thai_id";
 
 export const ThaiIDValidator: React.FC = () => {
-  const [inputID, setInputID] = useState<string>('');
+  const [inputID, setInputID] = useState<string>('1234567890121');
   const [errors, setErrors] = useState<string[]>([]);
+
+  useEffect(() => {
+    validateThaiID()
+  }, [inputID]);
 
   const validateThaiID = () => {
     const validationErrors = ThaiId.validate(inputID);
@@ -21,17 +25,22 @@ export const ThaiIDValidator: React.FC = () => {
         style={{ height: '2.5rem', width: '100%', marginBottom: '1rem' }}
         placeholder="กรอกหมายเลขบัตรประชาชน"
       />
-      <button style={{ height: '2.5rem', width: '100%' }} onClick={validateThaiID}>ตรวจสอบ</button>
-      {errors.length > 0 && (
+
+      {errors.length > 0 ? (
         <div style={{ marginTop: '1rem', color: '#EE9E0B' }}>
           <ul>
-          {errors.map((error, index) => (
-            <li>
-              <p key={index}>{error}</p>
-            </li>
-          ))}
+            {errors.map((error, index) => (
+              <li key={index}>
+                <p>{error}</p>
+              </li>
+            ))}
           </ul>
         </div>
+      ) : (
+        inputID &&
+        <p style={{ marginTop: '1rem', color: 'green' }}>
+          เลขบัตรประชาชนถูกต้อง
+        </p>
       )}
     </>
   );

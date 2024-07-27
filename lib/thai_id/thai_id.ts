@@ -38,20 +38,29 @@ export class ThaiId {
     return numbers.join('');
   }
 
-  static validate(id: string): boolean {
+  static validate(id: string): string[] {
+    let errors = [];
+
     if (id.length !== 13 || !/^\d{13}$/.test(id)) {
-      return false;
+      errors.push("จำนวนหลักไม่เท่ากับ 13 หลัก");
+      return errors;
     }
 
     const digits: number[] = id.split('').map(Number);
+    const checksum: number = this.calculateChecksum(digits.slice(0, 12));
 
+    if (checksum !== digits[12]) {
+      errors.push("เลขหลักสุดท้ายไม่ตรงตามแบบ");
+    }
+
+    return errors;
+  }
+
+  private static calculateChecksum(digits: number[]): number {
     const sum: number = digits
-      .slice(0, 12)
       .map((num, index) => num * (13 - index))
       .reduce((acc, val) => acc + val, 0);
 
-    const checksum: number = (11 - (sum % 11)) % 10;
-
-    return checksum === digits[12];
+    return (11 - (sum % 11)) % 10;
   }
 }

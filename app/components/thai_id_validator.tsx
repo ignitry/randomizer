@@ -24,9 +24,13 @@ export const ThaiIDValidator: React.FC = () => {
       <button style={{ height: '2.5rem', width: '100%' }} onClick={validateThaiID}>ตรวจสอบ</button>
       {errors.length > 0 && (
         <div style={{ marginTop: '1rem', color: '#EE9E0B' }}>
+          <ul>
           {errors.map((error, index) => (
-            <p key={index}>{error}</p>
+            <li>
+              <p key={index}>{error}</p>
+            </li>
           ))}
+          </ul>
         </div>
       )}
     </>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ThaiId } from "@/lib/thai_id/thai_id";
+import { ThaiId } from "@/lib/thai_id";
 
 export const ThaiIDGenerator: React.FC = () => {
   const [thaiID, setThaiID] = useState<string>('');

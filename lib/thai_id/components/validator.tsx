@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { ThaiId } from "@/lib/thai_id/thai_id";
+import { ThaiId } from "@/lib/thai_id";
 
 export const ThaiIDValidator: React.FC = () => {
   const [inputID, setInputID] = useState<string>('1234567890121');

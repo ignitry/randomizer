@@ -1,5 +1,5 @@
-import { Changwat } from './changwat';
-import { RandomNumber, ToZeroPaddedDigits } from './utils'
+import { Changwat } from './thai_id/changwat';
+import { RandomNumber, ToZeroPaddedDigits } from './thai_id/utils'
 
 export class ThaiId {
   static generate(): string {

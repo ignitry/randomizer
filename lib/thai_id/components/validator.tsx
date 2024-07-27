@@ -1,20 +1,20 @@
-"use client";
+"use client"
 
-import React, { useState, useEffect } from 'react';
-import { ThaiId } from "@/lib/thai_id";
+import React, { useState, useEffect } from 'react'
+import { ThaiId } from "@/lib/thai_id"
 
 export const ThaiIDValidator: React.FC = () => {
-  const [inputID, setInputID] = useState<string>('1234567890121');
-  const [errors, setErrors] = useState<string[]>([]);
+  const [inputID, setInputID] = useState<string>('1234567890121')
+  const [errors, setErrors] = useState<string[]>([])
 
   useEffect(() => {
     validateThaiID()
-  }, [inputID]);
+  }, [inputID])
 
   const validateThaiID = () => {
-    const validationErrors = ThaiId.validate(inputID);
-    setErrors(validationErrors);
-  };
+    const validationErrors = ThaiId.validate(inputID)
+    setErrors(validationErrors)
+  }
 
   return (
     <>

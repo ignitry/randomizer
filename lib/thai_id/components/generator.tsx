@@ -2,13 +2,14 @@
 
 import React, { useState } from 'react'
 import { ThaiId } from "@/lib/thai_id"
+import { DisplayThaiID } from "@/lib/thai_id/utils"
 
 export const ThaiIDGenerator: React.FC = () => {
   const [thaiID, setThaiID] = useState<string>('')
 
   const randomThaiID = () => {
     const thaiid = ThaiId.generate()
-    setThaiID(thaiid);
+    setThaiID(DisplayThaiID(thaiid));
 
     navigator.clipboard.writeText(thaiid)
       .then(() => {

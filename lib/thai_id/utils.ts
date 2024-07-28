@@ -9,3 +9,7 @@ export const ToZeroPaddedDigits = (num: number): number[] => {
     .split('')
     .map(Number)
 };
+
+export const DisplayThaiID = (thaiid :string): string => {
+  return `${thaiid.slice(0, 1)}-${thaiid.slice(1, 5)}-${thaiid.slice(5, 10)}-${thaiid.slice(10, 12)}-${thaiid.slice(12)}`
+};

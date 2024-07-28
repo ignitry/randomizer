@@ -1,20 +1,20 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { ThaiId } from "@/lib/thai_id"
 
 export const ThaiIDValidator: React.FC = () => {
   const [inputID, setInputID] = useState<string>('1234567890121')
   const [errors, setErrors] = useState<string[]>([])
 
-  useEffect(() => {
-    validateThaiID()
-  }, [inputID])
-
-  const validateThaiID = () => {
+  const validateThaiID = useCallback(() => {
     const validationErrors = ThaiId.validate(inputID)
     setErrors(validationErrors)
-  }
+  }, [inputID])
+
+  useEffect(() => {
+    validateThaiID()
+  }, [inputID, validateThaiID])
 
   return (
     <>

@@ -2,12 +2,12 @@ import { Changwat } from './thai_id/changwat';
 import { RandomNumber, ToZeroPaddedDigits } from './thai_id/utils'
 
 export class ThaiId {
+  static changwatKeys: string[] = Changwat.CodeList()
+
   static generate(): string {
     const firstDigit = RandomNumber(1,3)
 
-    const changwatKeys: string[] = Changwat.List()
-
-    const secondThirdDigits: number[] = changwatKeys[RandomNumber(0, changwatKeys.length - 1)]
+    const secondThirdDigits: number[] = this.changwatKeys[RandomNumber(0, this.changwatKeys.length - 1)]
       .split('')
       .map(Number)
 
@@ -44,14 +44,23 @@ export class ThaiId {
 
     if (id.length !== 13 || !/^\d{13}$/.test(id)) {
       errors.push("จำนวนหลักไม่เท่ากับ 13 หลัก")
-      return errors
+    }
+
+    const firstDigit = Number(id[0])
+    if (firstDigit === 9) {
+      errors.push("เลขหลักที่ 1 ไม่ถูกต้อง")
+    }
+
+    const secondThirdDigits = id.substring(1, 3)
+    if (!this.changwatKeys.includes(secondThirdDigits)) {
+      errors.push("เลขหลักที่ 2,3 ไม่ถูกต้อง")
     }
 
     const digits: number[] = id.split('').map(Number)
     const checksum: number = this.calculateChecksum(digits.slice(0, 12))
 
     if (checksum !== digits[12]) {
-      errors.push("เลขหลักสุดท้ายไม่ตรงตามแบบ")
+      errors.push("เลขหลักที่ 13 ไม่ถูกต้อง")
     }
 
     return errors;

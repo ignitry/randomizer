@@ -4,7 +4,7 @@ import changwats from './data/changwats.json';
 export class Changwat {
   static #list: string[]
 
-  public static List(): string[] {
+  public static CodeList(): string[] {
     if (!this.#list) {
       this.#list = Object.keys(changwats)
     }

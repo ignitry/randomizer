@@ -33,7 +33,7 @@ describe('ThaiIDGenerator', () => {
     const mockDisplayThaiID = '1-2345-67890-12-3'
 
     ;(ThaiId.generate as jest.Mock).mockReturnValue(mockThaiID)
-    (DisplayThaiID as jest.Mock).mockReturnValue(mockDisplayThaiID)
+    ;(DisplayThaiID as jest.Mock).mockReturnValue(mockDisplayThaiID)
 
     render(<ThaiIDGenerator />)
 
@@ -52,7 +52,7 @@ describe('ThaiIDGenerator', () => {
     const mockDisplayThaiID = '1-2345-67890-12-3'
 
     ;(ThaiId.generate as jest.Mock).mockReturnValue(mockThaiID)
-    (DisplayThaiID as jest.Mock).mockReturnValue(mockDisplayThaiID)
+    ;(DisplayThaiID as jest.Mock).mockReturnValue(mockDisplayThaiID)
 
     render(<ThaiIDGenerator />)
 
@@ -69,7 +69,7 @@ describe('ThaiIDGenerator', () => {
     const mockDisplayThaiID = '1-2345-67890-12-3'
 
     ;(ThaiId.generate as jest.Mock).mockReturnValue(mockThaiID)
-    (DisplayThaiID as jest.Mock).mockReturnValue(mockDisplayThaiID)
+    ;(DisplayThaiID as jest.Mock).mockReturnValue(mockDisplayThaiID)
 
     const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation()
     jest.spyOn(navigator.clipboard, 'writeText').mockRejectedValue(new Error('Failed to copy'))

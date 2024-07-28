@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Link href="/validations/new">
-          ตรวจสอบเลขบัตร
+        <Link href="/validations/new" className={styles.page_link}>
+          ตรวจสอบเลขบัตร &#x279C;
         </Link>
 
         <h1>โปรแกรมสุ่มเลขบัตรประชาชน</h1>

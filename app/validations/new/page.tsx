@@ -7,8 +7,8 @@ export default function NewValidationPage() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Link href="/">
-          สุ่มเลขบัตร
+        <Link href="/" className={styles.page_link}>
+          สุ่มเลขบัตร &#x279C;
         </Link>
 
         <h1>โปรแกรมตรวจสอบเลขบัตรประชาชน</h1>

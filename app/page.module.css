@@ -29,6 +29,7 @@
 
 .main {
   display: flex;
+  max-width: 400px;
   flex-direction: column;
   gap: 32px;
   grid-row-start: 2;

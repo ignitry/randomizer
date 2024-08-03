@@ -26,7 +26,7 @@ describe('ThaiIDValidator', () => {
       expect(screen.getByText(initialErrors[0])).toBeInTheDocument()
     })
 
-    ;(ThaiId.validate as jest.Mock).mockReturnValueOnce([])
+    ;(ThaiId.validate as jest.Mock).mockReturnValue([])
 
     const input = screen.getByPlaceholderText('กรอกหมายเลขบัตรประชาชน')
     fireEvent.change(input, { target: { value: '1234567890123' } })
@@ -39,7 +39,7 @@ describe('ThaiIDValidator', () => {
   })
 
   it('displays success message if Thai ID is valid', async () => {
-    (ThaiId.validate as jest.Mock).mockReturnValue([])
+    ;(ThaiId.validate as jest.Mock).mockReturnValue([])
 
     render(<ThaiIDValidator />)
 
@@ -60,7 +60,9 @@ describe('ThaiIDValidator', () => {
   it('updates errors when input changes', async () => {
     const initialErrors = ["จำนวนหลักไม่เท่ากับ 13 หลัก"]
     const updatedErrors = ["เลขหลักที่ 13 ไม่ถูกต้อง"]
-    ;(ThaiId.validate as jest.Mock).mockReturnValueOnce(initialErrors).mockReturnValueOnce(updatedErrors)
+    ;(ThaiId.validate as jest.Mock)
+      .mockReturnValueOnce(initialErrors)
+      .mockReturnValueOnce(updatedErrors)
 
     render(<ThaiIDValidator />)
 
@@ -74,6 +76,7 @@ describe('ThaiIDValidator', () => {
 
     await waitFor(() => {
       expect(ThaiId.validate).toHaveBeenCalledWith('1234567890122')
+      expect(screen.queryByText(initialErrors[0])).not.toBeInTheDocument()
       expect(screen.getByText(updatedErrors[0])).toBeInTheDocument()
     })
   })

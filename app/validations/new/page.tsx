@@ -1,4 +1,3 @@
-
 import styles from "../../page.module.css";
 import Link from "next/link";
 import { ThaiIDValidator } from "@/lib/thai_id/components/validator";
